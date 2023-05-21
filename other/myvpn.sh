@@ -8,24 +8,24 @@ NC='[0m'
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "memeriksa vps anda"
+echo "Check Your VPS on Reinstall OS and Try Again"
 sleep 0.5
 CEKEXPIRED () {
         today=$(date -d +1day +%Y -%m -%d)
         Exp1=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/other/izin | grep $MYIP | awk '{print $3}')
         if [[ $today < $Exp1 ]]; then
-        echo "status script aktif.."
+        echo "status script activated.."
         else
-        echo "SCRIPT ANDA EXPIRED";
+        echo "SCRIPT STATUS EXPIRED";
         exit 0
 fi
 }
 IZIN=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/other/izin | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
-echo "IZIN DI TERIMA!!"
+echo "PERMISSION RECEIVED!!"
 CEKEXPIRED
 else
-echo "Akses di tolak!! Benget sia hurung!!";
+echo "Access denied!! It's a shame!!";
 exit 0
 fi
 
@@ -52,7 +52,7 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 
 apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
+echo -e "[ ${green}INFO${NC} ] Alright Good ... installation file is ready"
 sleep 2
 
 mkdir -p /var/lib/scrz-prem >/dev/null 2>&1
