@@ -10,11 +10,10 @@ wget -O /usr/local/bin/ws-dropbear https://raw.githubusercontent.com/Farukbrowse
 wget -O /usr/local/bin/ws-stunnel https://raw.githubusercontent.com/Farukbrowser/frk/main/insshws/ws-stunnel.txt
 wget -O /usr/local/bin/edu-proxyovpn https://gitlab.com/hidessh/baru/-/raw/main/websocket-python/baru/ovpn.py && chmod +x /usr/local/bin/edu-proxyovpn
 
-#izin permision
-#chmod +x /usr/local/bin/ws-openssh
+chmod +x /usr/local/bin/edu-proxy
 chmod +x /usr/local/bin/ws-dropbear
 chmod +x /usr/local/bin/ws-stunnel
-#chmod +x /usr/local/bin/ws-ovpn
+chmod +x /usr/local/bin/edu-proxyovpn
 
 
 #System OpenSSH Websocket-SSH Python
