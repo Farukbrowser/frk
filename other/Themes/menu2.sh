@@ -17,24 +17,24 @@ wget -q -O /root/status "https://raw.githubusercontent.com/Farukbrowser/frk/main
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "memeriksa vps anda"
+echo "Check Your VPS on Reinstall OS and Try Again"
 sleep 0.5
 CEKEXPIRED () {
         today=$(date -d +1day +%Y -%m -%d)
         Exp1=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/izin | grep $MYIP | awk '{print $3}')
         if [[ $today < $Exp1 ]]; then
-        echo "status script aktif.."
+        echo "status script activated.."
         else
-        echo "SCRIPT ANDA EXPIRED";
+        echo "SCRIPT STATUS EXPIRED";
         exit 0
 fi
 }
 IZIN=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/izin | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
-echo "IZIN DI TERIMA!!"
+echo "PERMISSION APPROVED!!"
 CEKEXPIRED
 else
-echo "Akses di tolak!! Benget sia hurung!!";
+echo "Access Denied!! It's a shame!!";
 exit 0
 fi
 

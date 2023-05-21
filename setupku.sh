@@ -30,7 +30,7 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 
 apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
+echo -e "[ ${green}INFO${NC} ] Alright Good ... installation file is ready"
 sleep 2
 
 
@@ -45,13 +45,13 @@ rm tools.sh
 clear
 # izin
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "memeriksa vps anda"
+echo "Check Your VPS on Reinstall OS and Try Again"
 sleep 0.5
 CEKEXPIRED () {
         today=$(date -d +1day +%Y -%m -%d)
         Exp1=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/izin | grep $MYIP | awk '{print $3}')
         if [[ $today < $Exp1 ]]; then
-        echo "script status is active.."
+        echo "script status activated.."
         else
         echo "YOUR SCRIPT EXPIRED";
         exit 0
