@@ -56,15 +56,15 @@ wget -q -O /root/status "https://raw.githubusercontent.com/Farukbrowser/frk/main
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "memeriksa vps anda"
+echo "Check Your VPS on Reinstall OS and Try Again"
 sleep 0.5
 CEKEXPIRED () {
         today=$(date -d +1day +%Y -%m -%d)
         Exp1=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/other/izin | grep $MYIP | awk '{print $3}')
         if [[ $today < $Exp1 ]]; then
-        echo "status script aktif.."
+        echo "script status activated.."
         else
-        echo "SCRIPT ANDA EXPIRED";
+        echo "STATUS SCRIPT EXPIRED";
         exit 0
 fi
 }
@@ -73,7 +73,7 @@ if [ $MYIP = $IZIN ]; then
 echo "IZIN DI TERIMA!!"
 CEKEXPIRED
 else
-echo "Akses di tolak!! Benget sia hurung!!";
+echo "Access denied!! It's a shame!!";
 exit 0
 fi
 # // Root Checking
@@ -172,7 +172,7 @@ echo -e " ${GREEN}"
 echo -e "${GREEN}┌──────────────────────────────────────────────────┐${NC}"
 echo -e "${GREEN}│ ${BOLD}${LIGHT}Client    = $Name                           ${NC}"
 echo -e "${GREEN}│ ${BOLD}${LIGHT}Expired   = $Exp                            ${NC}"
-echo -e "${GREEN}│ ${BOLD}${LIGHT}Developer = AZIGANS💯                         ${NC}"
+echo -e "${GREEN}│ ${BOLD}${LIGHT}Developer = Farukbrowser💯                         ${NC}"
 echo -e "${GREEN}│ ${BOLD}${LIGHT}Version   = 3.0.0 LTS                         ${NC}"
 
 echo -e "${GREEN}└──────────────────────────────────────────────────┘${NC}"
