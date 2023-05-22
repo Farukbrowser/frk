@@ -1,48 +1,53 @@
-BIBlack='\033[1;90m'      # Black
-BIRed='\033[1;91m'        # Red
-BIGreen='\033[1;92m'      # Green
-BIYellow='\033[1;93m'     # Yellow
-BIBlue='\033[1;94m'       # Blue
-BIPurple='\033[1;95m'     # Purple
-BICyan='\033[1;96m'       # Cyan
-BIWhite='\033[1;97m'      # White
-UWhite='\033[4;37m'       # White
-On_IPurple='\033[0;105m'  #
-On_IRed='\033[0;101m'
-IBlack='\033[0;90m'       # Black
-IRed='\033[0;91m'         # Red
-IGreen='\033[0;92m'       # Green
-IYellow='\033[0;93m'      # Yellow
-IBlue='\033[0;94m'        # Blue
-IPurple='\033[0;95m'      # Purple
-ICyan='\033[0;96m'        # Cyan
-IWhite='\033[0;97m'       # White
-NC='\e[0m'
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-export RED='\033[0;31m'
-export GREEN='\033[0;32m'
-export YELLOW='\033[0;33m'
-export BLUE='\033[0;34m'
-export PURPLE='\033[0;35m'
-export CYAN='\033[0;36m'
-export LIGHT='\033[0;37m'
-export NC='\033[0m'
+BIBlack='[1;90m'      # Black
+BIRed='[1;91m'        # Red
+BIGreen='[1;92m'      # Green
+BIYellow='[1;93m'     # Yellow
+BIBlue='[1;94m'       # Blue
+BIPurple='[1;95m'     # Purple
+BICyan='[1;96m'       # Cyan
+BIWhite='[1;97m'      # White
+UWhite='[4;37m'       # White
+On_IPurple='[0;105m'  #
+On_IRed='[0;101m'
+IBlack='[0;90m'       # Black
+IRed='[0;91m'         # Red
+IGreen='[0;92m'       # Green
+IYellow='[0;93m'      # Yellow
+IBlue='[0;94m'        # Blue
+IPurple='[0;95m'      # Purple
+ICyan='[0;96m'        # Cyan
+IWhite='[0;97m'       # White
+NC='[0m'
+green() { echo -e "\033[32;1m${*}\033[0m"; }
+red() { echo -e "\033[31;1m${*}\033[0m"; }
+export RED='[0;31m'
+export GREEN='[0;32m'
+export YELLOW='[0;33m'
+export BLUE='[0;34m'
+export PURPLE='[0;35m'
+export CYAN='[0;36m'
+export LIGHT='[0;37m'
+export NC='[0m'
 export EROR="[${RED} EROR ${NC}]"
 export INFO="[${YELLOW} INFO ${NC}]"
 export OKEY="[${GREEN} OKEY ${NC}]"
 export PENDING="[${YELLOW} PENDING ${NC}]"
 export SEND="[${YELLOW} SEND ${NC}]"
 export RECEIVE="[${YELLOW} RECEIVE ${NC}]"
-export BOLD="\e[1m"
-export WARNING="${RED}\e[5m"
-export UNDERLINE="\e[4m"
+export BOLD="[1m"
+export WARNING="${RED}[5m"
+export UNDERLINE="[4m"
 export Server_URL="raw.githubusercontent.com/Zeastore/test/main"
 export Server1_URL="raw.githubusercontent.com/Zeastore/limit/main"
 export Server_Port="443"
 export Server_IP="underfined"
 export Script_Mode="Stable"
 export Auther=".geovpn"
+
+rm -f /usr/bin/lock
+rm -f /usr/bin/unlock
+wget -q -O /usr/bin/lock "https://raw.githubusercontent.com/Farukbrowser/frk/main/other/limit/user-lock.sh" && chmod +x /usr/bin/lock
+wget -q -O /usr/bin/unlock "https://raw.githubusercontent.com/Farukbrowser/frk/main/other/limit/user-unlock.sh" && chmod +x /usr/bin/unlock
 if [ "${EUID}" -ne 0 ]; then
 echo -e "${EROR} Please Run This Script As Root User !"
 exit 1
@@ -52,9 +57,9 @@ export NETWORK_IFACE="$(ip route show to default | awk '{print $5}')"
 clear
 function del(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               DELETE USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m               DELETE USER                [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo ""
 read -p "Username SSH to Delete : " Pengguna
 if getent passwd $Pengguna > /dev/null 2>&1; then
@@ -69,11 +74,11 @@ menu
 function autodel(){
 clear
 hariini=`date +%d-%m-%Y`
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               AUTO DELETE                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m               AUTO DELETE                [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "Thank you for removing the EXPIRED USERS"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 cat /etc/shadow | cut -d: -f1,8 | sed /:$/d > /tmp/expirelist.txt
 totalaccounts=`cat /tmp/expirelist.txt | wc -l`
 for((i=1; i<=$totalaccounts; i++ ))
@@ -105,19 +110,19 @@ userdel $username
 fi
 done
 echo " "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 function ceklim(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         CEK USER MULTI SSH        \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m         CEK USER MULTI SSH        [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 if [ -e "/root/log-limit.txt" ]; then
 echo "User Who Violate The Maximum Limit";
 echo "Time - Username - Number of Multilogin"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 cat /root/log-limit.txt
 else
 echo " No user has committed a violation"
@@ -127,7 +132,7 @@ echo " "
 echo " The user-limit script not been executed."
 fi
 echo " ";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo " ";
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
@@ -140,11 +145,11 @@ if [ -e "/var/log/secure" ]; then
 LOG="/var/log/secure";
 fi
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m         Dropbear User Login       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m         Dropbear User Login       [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 cat $LOG | grep -i dropbear | grep -i "Password auth succeeded" > /tmp/login-db.txt;
 for PID in "${data[@]}"
 do
@@ -155,14 +160,14 @@ IP=`cat /tmp/login-db-pid.txt | awk '{print $12}'`;
 if [ $NUM -eq 1 ]; then
 echo "$PID - $USER - $IP";
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 done
 echo " "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenSSH User Login       \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m          OpenSSH User Login       [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "ID  |  Username  |  IP Address";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
 for PID in "${data[@]}"
@@ -174,30 +179,30 @@ IP=`cat /tmp/login-db-pid.txt | awk '{print $11}'`;
 if [ $NUM -eq 1 ]; then
 echo "$PID - $USER - $IP";
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 done
 if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
 echo " "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenVPN TCP User Login         \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m          OpenVPN TCP User Login         [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "Username  |  IP Address  |  Connected Since";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 cat /etc/openvpn/server/openvpn-tcp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-tcp.txt
 cat /tmp/vpn-login-tcp.txt
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
 echo " "
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m          OpenVPN UDP User Login         \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m          OpenVPN UDP User Login         [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "Username  |  IP Address  |  Connected Since";
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-udp.txt
 cat /tmp/vpn-login-udp.txt
 fi
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "";
 rm -f /tmp/login-db-pid.txt
 rm -f /tmp/login-db.txt
@@ -208,11 +213,11 @@ menu
 }
 function member(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m                 MEMBER SSH               \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m                 MEMBER SSH               [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "USERNAME          EXP DATE          STATUS"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 while read expired
 do
 AKUN="$(echo $expired | cut -d: -f1)"
@@ -221,25 +226,27 @@ exp="$(chage -l $AKUN | grep "Account expires" | awk -F": " '{print $2}')"
 status="$(passwd -S $AKUN | awk '{print $2}' )"
 if [[ $ID -ge 1000 ]]; then
 if [[ "$status" = "L" ]]; then
-printf "%-17s %2s %-17s %2s \n" "$AKUN" "$exp     " "LOCKED${NORMAL}"
+printf "%-17s %2s %-17s %2s 
+" "$AKUN" "$exp     " "LOCKED${NORMAL}"
 else
-printf "%-17s %2s %-17s %2s \n" "$AKUN" "$exp     " "UNLOCKED${NORMAL}"
+printf "%-17s %2s %-17s %2s 
+" "$AKUN" "$exp     " "UNLOCKED${NORMAL}"
 fi
 fi
 done < /etc/passwd
 JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo "Account number: $JUMLAH user"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 function renew(){
 clear
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m               RENEW  USER                [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo
 read -p "Username : " User
 egrep "^$User" /etc/passwd >/dev/null
@@ -253,33 +260,35 @@ Expiration_Display=$(date -u --date="1970-01-01 $Expire_On sec GMT" '+%d %b %Y')
 passwd -u $User
 usermod -e  $Expiration $User
 egrep "^$User" /etc/passwd >/dev/null
-echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
+echo -e "$Pass
+$Pass
+"|passwd $User &> /dev/null
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m               RENEW  USER                [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo -e ""
 echo -e " Username : $User"
 echo -e " Days Added : $Days Days"
 echo -e " Expires on :  $Expiration_Display"
 echo -e ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 else
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;41;36m               RENEW  USER                \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[0;41;36m               RENEW  USER                [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo -e ""
-echo -e "   Username Doesnt Exist      "
+echo -e "   Username Does not Exist      "
 echo -e ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 fi
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 function autokill(){
 clear
-Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" && Font_color_suffix="\033[0m"
+Green_font_prefix="[32m" && Red_font_prefix="[31m" && Green_background_prefix="[42;37m" && Red_background_prefix="[41;37m" && Font_color_suffix="[0m"
 Info="${Green_font_prefix}[ON]${Font_color_suffix}"
 Error="${Red_font_prefix}[OFF]${Font_color_suffix}"
 cek=$(grep -c -E "^# Autokill" /etc/cron.d/tendang)
@@ -289,9 +298,9 @@ else
 sts="${Error}"
 fi
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m             AUTOKILL SSH          \E[0m"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
+echo -e "[44;1;39m             AUTOKILL SSH          [0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo -e "Status Autokill : $sts        "
 echo -e ""
 echo -e "[1]  AutoKill After 5 Minutes"
@@ -300,7 +309,7 @@ echo -e "[3]  AutoKill After 15 Minutes"
 echo -e "[4]  Turn Off AutoKill/MultiLogin"
 echo -e "[x]  Menu"
 echo ""
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 echo -e ""
 read -p "Select From Options [1-4 or x] :  " AutoKill
 read -p "Multilogin Maximum Number Of Allowed: " max
@@ -383,23 +392,25 @@ read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
 clear
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                         ⇱ SSH MENU  ⇲                         \E[0m"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m${NC}"
+echo -e "[44;1;39m                         ⇱ SSH MENU  ⇲                         [0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m${NC}"
 echo -e ""
-echo -e "     ${BICyan}[${BIWhite}1${BICyan}] Add Account SSH      "
-echo -e "     ${BICyan}[${BIWhite}2${BICyan}] Delete Account SSH      "
-echo -e "     ${BICyan}[${BIWhite}3${BICyan}] Renew Account SSH      "
-echo -e "     ${BICyan}[${BIWhite}4${BICyan}] Cek User SSH     "
-echo -e "     ${BICyan}[${BIWhite}5${BICyan}] Mullog SSH     "
-echo -e "     ${BICyan}[${BIWhite}6${BICyan}] Auto Del user Exp     "
-echo -e "     ${BICyan}[${BIWhite}7${BICyan}] Auto Kill user SSH    "
-echo -e "     ${BICyan}[${BIWhite}8${BICyan}] Cek Member SSH"
-echo -e "     ${BICyan}[${BIWhite}9${BICyan}] Trial SSH"
+echo -e "     ${BICyan}[${BIWhite}1${BICyan}] Create SSH Account          "
+echo -e "     ${BICyan}[${BIWhite}2${BICyan}] Delete Account SSH          "
+echo -e "     ${BICyan}[${BIWhite}3${BICyan}] Renew Account SSH           "
+echo -e "     ${BICyan}[${BIWhite}4${BICyan}] Check User SSH              "
+echo -e "     ${BICyan}[${BIWhite}5${BICyan}] Check Limit SSH             "
+echo -e "     ${BICyan}[${BIWhite}6${BICyan}] Auto Delete User Expired    "
+echo -e "     ${BICyan}[${BIWhite}7${BICyan}] Auto Kill user SSH          "
+echo -e "     ${BICyan}[${BIWhite}8${BICyan}] Check Member SSH            "
+echo -e "     ${BICyan}[${BIWhite}9${BICyan}] Trial SSH                   "
+echo -e "     ${BICyan}[${BIWhite}10${BICyan}] LOCK SSH ACCOUNT           "
+echo -e "     ${BICyan}[${BIWhite}11${BICyan}] UNLOCK SSH ACCOUNT         "
 
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[44;1;39m                     ⇱ 24clanSSH TUNNELING ⇲                   \E[0m"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m${NC}"
+echo -e "[44;1;39m                     ⇱ 24clanSSH TUNNELING ⇲                   [0m"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m${NC}"
 echo -e "     ${BIYellow}Press x or [ Ctrl+C ] • To-${BIWhite}Exit${NC}"
 echo ""
 read -p " Select menu : " opt
@@ -414,6 +425,8 @@ case $opt in
 7) clear ; autokill ;;
 8) clear ; member ;;
 9) clear ; trial ;;
+10) clear ; lock ;;
+11) clear ; unlock ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo -e "" ; echo "Press any key to back on menu" ; sleep 1 ; menu ;;
