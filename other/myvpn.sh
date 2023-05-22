@@ -152,7 +152,7 @@ echo -e "[33m━━━━━━━━━━━━━━━━━━━━━━
 echo -e "$green      Install OPENVPN             $NC"
 echo -e "[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 
-wget raw.githubusercontent.com/fisabiliyusri/Mantap/main/ssh/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget raw.githubusercontent.com/Farukbrowser/Mantap/main/ssh/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 #install remove log
 echo "0 5 * * * root reboot" >> /etc/crontab
