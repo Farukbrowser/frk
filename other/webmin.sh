@@ -54,12 +54,12 @@ Error="${Red_font_prefix}[Not Installed]${Font_color_suffix}"
 cek=$(netstat -ntlp | grep 10000 | awk '{print $7}' | cut -d'/' -f2)
 function install () {
 IP=$(wget -qO- ifconfig.co);
-echo " Menambahkan Repositori Webmin"
+echo " Added Webmin Repositories"
 sh -c 'echo "deb http://download.webmin.com/download/repository sarge contrib" > /etc/apt/sources.list.d/webmin.list'
 apt install gnupg gnupg1 gnupg2 -y
 wget http://www.webmin.com/jcameron-key.asc
 apt-key add jcameron-key.asc
-echo " Mulai Install Webmin"
+echo " Start Install Webmin"
 clear
 sleep 0.5
 apt update > /dev/null 2>&1
@@ -69,29 +69,29 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 rm -f /root/jcameron-key.asc
 clear
 echo ""
-echo " Berhasil Install Webmin"
+echo " Successfully Installed Webmin"
 echo " $IP:10000"
 }
 function restart () {
-echo " Mulai Webmin"
+echo " Start WebMin"
 sleep 0.5
 service webmin restart > /dev/null 2>&1
-echo " Mulai Uninstall Webmin"
+echo " Start Uninstalling Webmin"
 clear
 echo ""
-echo " Berhasil Restart Webmin"
+echo " Successfully Restarted Webmin"
 }
 function uninstall () {
-echo " Menghapus Repositori Webmin"
+echo " Removing Webmin Repositories"
 rm -f /etc/apt/sources.list.d/webmin.list
 apt update > /dev/null 2>&1
-echo " Mulai Uninstall Webmin"
+echo " Start Uninstalling Webmin"
 clear
 sleep 0.5
 apt autoremove --purge webmin -y > /dev/null 2>&1
 clear
 echo ""
-echo " Berhasil Uninstall Webmin"
+echo " Successfully Uninstalled Webmin"
 }
 if [[ "$cek" = "perl" ]]; then
 sts="${Info}"
@@ -117,6 +117,6 @@ elif [[ "$num" = "3" ]]; then
 uninstall
 else
 clear
-echo "Masukkan Angka Yang Ada!"
+echo "Enter Existing Numbers!"
 menu
 fi
