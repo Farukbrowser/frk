@@ -23,12 +23,12 @@ if [ $MYIP = $MYIP ]; then
 echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
 echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
+echo -e "${NC}${LIGHT}Contact me on whatsapp. +2348084124966!!"
 exit 0
 fi
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/fisabiliyusri/Mantap/main/ipsec"
+akbarvpn="raw.githubusercontent.com/Farukbrowser/Mantap/main/ipsec"
 
 VPN_IPSEC_PSK='azi'
 NET_IFACE=$(ip -o $NET_IFACE -4 route show to default | awk '{print $5}');
