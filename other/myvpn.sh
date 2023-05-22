@@ -12,7 +12,7 @@ echo "Check Your VPS on Reinstall OS and Try Again"
 sleep 0.5
 CEKEXPIRED () {
         today=$(date -d +1day +%Y -%m -%d)
-        Exp1=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/other/izin | grep $MYIP | awk '{print $3}')
+        Exp1=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/izin | grep $MYIP | awk '{print $3}')
         if [[ $today < $Exp1 ]]; then
         echo "status script activated.."
         else
@@ -20,7 +20,7 @@ CEKEXPIRED () {
         exit 0
 fi
 }
-IZIN=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/other/izin | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/Farukbrowser/frk/main/izin | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
 echo "PERMISSION RECEIVED!!"
 CEKEXPIRED
@@ -125,7 +125,7 @@ wget -q -O senmenu.sh https://raw.githubusercontent.com/Farukbrowser/frk/main/ot
 sleep 1
 #install slowdns
 echo -e "[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
-echo -e "$green      Install slowdns               $NC"
+echo -e "$green      Install SlowDNS               $NC"
 echo -e "[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m"
 sleep 2
 
