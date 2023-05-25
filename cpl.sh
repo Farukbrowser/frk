@@ -44,6 +44,6 @@ fi
 
 rm -f cyberpanel.sh
 rm -f install.tar.gz
-curl --silent -o cyberpanel.sh "https://raw.githubusercontent.com/Farukbrowser/frk/main/ubuntu" 2>/dev/null
+curl --silent -o cyberpanel.sh "https://raw.githubusercontent.com/Farukbrowser/frk/main/?dl&$SERVER_OS" 2>/dev/null
 chmod +x cyberpanel.sh
 ./cyberpanel.sh $@
